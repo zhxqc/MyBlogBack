@@ -9,7 +9,7 @@ tags: Vue
 ```
 npm install qrcode --save
 ```
-
+<!-- more -->
 例子如下：
 
 ```vue
