@@ -5,16 +5,18 @@ tags: Vue
 ---
 ## Uncaught (in promise) DOMException: The play() request was interrupted by a call to pause().
 
-#### 原因：
-从chrome50开始，对<video>或<audio>元素的play()调用返回一个promise。
+从chrome50开始，对`<video>`或`<audio>`元素的play()调用返回一个promise。
 一个异步返回单个结果的函数，如果执行成功，Promise实现，play事件也同时执行
-<!-- more -->
 
 #### 错误发生的过程为：
 
 1. media.play() 开始异步加载video/audio内容
+
 2. media.pause() 在video/audio没有准备好时中断加载。
+
 3. media.paly()此时进行继续播放，报错
+
+<!-- more -->
 
 #### 解决方案：
 

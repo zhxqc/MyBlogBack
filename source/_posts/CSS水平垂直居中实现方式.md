@@ -43,7 +43,7 @@ tags: CSS
 
 #### 水平居中
 
-##### 1-行内元素（最简单 text-align: center）
+##### 行内元素（最简单 text-align: center）
 
 ```
 .outer {
@@ -51,7 +51,7 @@ tags: CSS
 }
 ```
 
-##### 1-块级元素（margin: auto）
+##### 块级元素（margin: auto）
 
 当使用这种方式时，内部元素必须定义宽度，不然margin属性会无效
 
@@ -61,7 +61,7 @@ tags: CSS
 }
 ```
 
-##### 2-块级元素（margin: auto + display: table）
+##### 块级元素（margin: auto + display: table）
 
 前面这种方式需要为内部元素定义宽度，如果不想定义宽度，可以设置内部元素的display 为 table，它的宽度会由内部元素来撑开。
 
@@ -72,7 +72,7 @@ tags: CSS
 }
 ```
 
-##### 3-块级元素（display: inline）
+##### 块级元素（display: inline）
 
 为内部元素设置display 为inline，将它转换为行内元素，再对父元素使用text-align: center 可以实现水平居中，缺点就是内部元素无法设置宽度。
 
@@ -85,7 +85,7 @@ tags: CSS
 }
 ```
 
-###### 4-块级元素（display: inline-block）
+##### 块级元素（display: inline-block）
 
 方案三无法为内部元素设置宽度，但是采用inline-block，则可以为内部元素设置宽度。
 
@@ -98,7 +98,7 @@ tags: CSS
 }
 ```
 
-##### 5-块级元素（float: left + transform）
+##### 块级元素（float: left + transform）
 
 这种方式不需要知道内部元素宽度。
 
@@ -110,7 +110,7 @@ tags: CSS
 }
 ```
 
-##### 6-块级元素（负边距+绝对定位）
+##### 块级元素（负边距+绝对定位）
 
 ```
 .outer {
@@ -123,7 +123,7 @@ tags: CSS
 }
 ```
 
-##### 7-块级元素（flexbox）
+##### 块级元素（flexbox）
 
 ```
 用的最多的方式，但低版本浏览器会有兼容问题
@@ -135,7 +135,7 @@ tags: CSS
 
 #### 垂直居中
 
-##### 1-行内元素（line-height）
+##### 行内元素（line-height）
 
 外部元素设置line-height
 
@@ -145,7 +145,7 @@ tags: CSS
 }
 ```
 
-##### 1-块级元素（absolute + top + margin-top）
+##### 块级元素（absolute + top + margin-top）
 
 使用绝对定位将内部元素的顶部定位在中间，再通过margin-top 负值拉回高度，需要提前知道内部元素的高度
 
@@ -160,7 +160,7 @@ tags: CSS
 }
 ```
 
-##### 2-块级元素（absolute + margin:auto）
+##### 块级元素（absolute + margin:auto）
 
 这种方式不需要知道内部元素的高度，兼容性也很好
 
@@ -178,7 +178,7 @@ tags: CSS
 }
 ```
 
-##### 3-块级元素（relative + transform）
+##### 块级元素（relative + transform）
 
 前面水平居中的时候也出现过这种方式，也可以使用position: absolute方式，但要对应地将外部元素设置成position: relative
 
@@ -190,7 +190,7 @@ tags: CSS
 }
 ```
 
-##### 4-块级元素（vertical-align + table-cell）
+##### 块级元素（vertical-align + table-cell）
 
 ```
 .outer {
@@ -199,7 +199,7 @@ tags: CSS
 }
 ```
 
-##### 5-块级元素（vertical-align + inline-block）
+##### 块级元素（vertical-align + inline-block）
 
 原理是新建一个inner的兄弟元素，高度撑开整个容器，再对inner使用vertical-align: middle 使元素居中，不需要知道内部元素的高度
 
@@ -221,7 +221,7 @@ html结构
 }
 ```
 
-##### 5-块级元素（伪元素）
+##### 块级元素（伪元素）
 
 原理和上面的方式一样，只是通过伪元素去撑开高度
 
@@ -238,7 +238,7 @@ html结构
 }
 ```
 
-##### 6-块级元素（flexbox）
+##### 块级元素（flexbox）
 
 ```
 .outer {
