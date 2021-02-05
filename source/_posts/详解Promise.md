@@ -2,6 +2,7 @@
 title: 详解Promise
 date: 2021-01-29 15:43:08
 tags: JavaScript
+image: https://raw.githubusercontent.com/zhanghengGetUp/pic/main/post-image1.jpg
 ---
 
 ### 两个重点
