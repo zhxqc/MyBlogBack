@@ -106,9 +106,9 @@ image: https://raw.githubusercontent.com/zhanghengGetUp/pic/main/post-image1.jpg
 
 
 
-### 实现
+## 实现
 
-#### 骨架
+### 骨架
 
 根据用户的使用方法，构建架构的骨架
 
@@ -118,8 +118,10 @@ class Promise{
         this.status = STATES.PENDING
         this.value = null
         this.reason = null
-        this.fullfilledCbs = []
-        this.rejectedCbs = []
+        // 存放成功的回调
+    		this.fullfilledCbs = [];
+    		// 存放失败的回调
+    		this.rejectedCbs= [];
         const resolve = () => { }
         const reject = () => { }
         execute(resolve,reject)
@@ -130,6 +132,8 @@ class Promise{
     }
 }
 ```
+
+### 简单实现
 
 先不考虑各种情况，只是简单去实现，不去考虑异步，返回值等条件的结构。
 
@@ -145,6 +149,8 @@ class Promise {
     this.status = STATES.PENDING;
     this.value = null;
     this.reason = null;
+    this.fullfilledCbs = [];
+    this.rejectedCbs= [];
 
     const resolve = (value) => {
       if (this.status === STATES.PENDING) {
@@ -168,13 +174,43 @@ class Promise {
     }
   }
 
-  then(fullfilledCbs, rejectedCbs) {
+  then(onFulfilled, onRejected) {
     if (this.status === STATES.FULFILLED) {
       onFulfilled(this.value);
     } else if (this.status === STATES.REJECTED) {
       onRejected(this.reason);
     }
+    if (this.status === STATES.PENDING) {
+      // 如果promise的状态是 pending，需要将 onFulfilled 和 onRejected 函数存放起来，等待状态确定后，再依次将对应的函数执行
+      this.fullfilledCbs.push(() => {
+        onFulfilled(this.value)
+      });
+      this.rejectedCbs.push(()=> {
+        onRejected(this.reason);
+      })
+    }
   }
 }
 ```
+
+#### 测试一下
+
+```
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('成功');
+  },1000);
+}).then(
+  (data) => {
+    console.log('success', data)
+  },
+  (err) => {
+    console.log('faild', err)
+  }
+)
+
+等待1秒后控制台输出： success 成功
+```
+
+### then方法补全
 

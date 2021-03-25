@@ -61,7 +61,7 @@ preview:
     # ex.two  =>  api: https://v2.jinrishici.com/one.json  data_contents: ['data', 'content']
 
 # Copyright
-copyright: <p>Powered by zhangheng</p>
+copyright: <p>Copyright © 2021 | 京ICP备2021007056号-1</p>
 
 # Social
 social:
